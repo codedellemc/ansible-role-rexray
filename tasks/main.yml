@@ -8,6 +8,14 @@
 
 - include: config.yml
 
+- name: do we uses systemctl
+  stat: path=/bin/systemctl
+  register: systemctl
+
+- name: ensure systemd is reloaded
+  command: systemctl daemon-reload
+  when: systemctl.stat.exists == True
+  
 - name: ensure rexray is running
   service:
     name: rexray
