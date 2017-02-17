@@ -6,3 +6,13 @@
 - name: Add rexray config file
   template: src=config.yml.j2 dest=/etc/rexray/config.yml mode=0755 owner=root group=root
   notify: restart rexray
+
+- name: Create systemctl override config file directory
+  file: path=/etc/systemd/system/rexray.service.d/ state=directory mode=0755 owner=root group=root
+
+- name: Add rexray config file
+  template: src=override.conf dest=/etc/systemd/system/rexray.service.d/override.conf mode=0755 owner=root group=root
+  notify:
+    - reload systemd
+    - restart rexray
+  

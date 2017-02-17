@@ -8,6 +8,9 @@
 
 - include: config.yml
 
+- name: ensure systemd is reloaded
+  command: systemctl daemon-reload
+  
 - name: ensure rexray is running
   service:
     name: rexray
