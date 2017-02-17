@@ -1,6 +1,7 @@
 ---
 - name: reload systemd
   command: systemctl daemon-reload
+  when: systemctl.stat.exists == True
 
 - name: restart rexray
   service:
