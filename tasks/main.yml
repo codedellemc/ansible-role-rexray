@@ -18,3 +18,6 @@
     name: rexray
     state: started
   when: rexray_service
+
+- include: docker.yml
+  when: rexray_docker is defined

@@ -61,3 +61,6 @@ rexray_vbox_tls: false
 rexray_vbox_volume_path: ''
 rexray_vbox_controller_name: SATA
 #rexray_vbox_machine: ''
+
+# Docker
+rexray_docker: false

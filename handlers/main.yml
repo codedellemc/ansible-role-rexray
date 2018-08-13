@@ -4,3 +4,8 @@
     name: rexray
     state: restarted
   when: rexray_service
+
+- name: restart docker
+  systemd:
+      name: docker
+      state: restarted

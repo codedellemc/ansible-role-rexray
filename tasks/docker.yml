@@ -1,0 +1,13 @@
+---
+
+- name: Create Docker plug-ins folder
+  file:
+    path: /etc/docker/plug-ins
+    state: directory
+
+- name: Add docker config file
+  template:
+    src: docker.spec.j2
+    dest: /etc/docker/plug-ins/rexray.spec
+  notify:
+    - restart docker

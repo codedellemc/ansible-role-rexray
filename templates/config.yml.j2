@@ -1,5 +1,10 @@
 # {{ ansible_managed }}
 rexray:
+{% if rexray_docker is defined %}
+  modules:
+    default-docker:
+      host: tcp://:7981
+{% endif %}
   logLevel: {{ rexray_log_level }}
 libstorage:
   service: {{ rexray_storage_drivers[0] }}
